@@ -22,26 +22,10 @@ allKeys.forEach((key) => {
 
 let keyMapping = {
   "/": "÷",
+  "*": "×",
+  "-": "-",
+  "+": "+",
 };
-
-body.addEventListener("keypress", (event) => {
-  let keyPressed = keyMapping[event.key] || event.key;
-  allKeys.forEach((key) => {
-    if (key.value === keyPressed) {
-      display.value += key.value;
-    }
-  });
-});
-
-equalsKey.addEventListener("click", () => {
-  try {
-    let finalExpression = display.value.replace("×", "*").replace("=", "");
-
-    display.value = eval(finalExpression);
-  } catch (error) {
-    display.value = "Error";
-  }
-});
 
 body.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
@@ -60,5 +44,14 @@ body.addEventListener("keydown", (event) => {
         display.value += key.value;
       }
     });
+  }
+});
+
+equalsKey.addEventListener("click", () => {
+  try {
+    let finalExpression = display.value.replace("×", "*").replace("=", "");
+    display.value = eval(finalExpression);
+  } catch (error) {
+    display.value = "Error";
   }
 });
