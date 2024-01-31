@@ -73,3 +73,8 @@ h1 {
   background-color: none;
   border: none;
 }
+
+
+input[type="button"] {
+  padding: 0;
+}
